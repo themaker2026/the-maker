@@ -1,0 +1,202 @@
+.section {
+    padding: 96px 32px;
+    background: var(--color-charcoal);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse at center,
+            rgba(0, 118, 119, 0.18) 0%,
+            transparent 65%);
+    pointer-events: none;
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse at center,
+            rgba(203, 224, 224, 0.06) 0%,
+            transparent 65%);
+    pointer-events: none;
+}
+
+.inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+
+.eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow_line {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--color-teal);
+    flex-shrink: 0;
+}
+
+.headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-bg);
+    margin: 0;
+}
+
+.headline_italic {
+    font-style: italic;
+    color: var(--color-panel);
+    display: block;
+}
+
+.body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-sage);
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn_primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-teal);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn_primary:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.btn_primary:hover .arrow {
+    transform: translateX(3px);
+}
+
+.btn_secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 0.8px solid rgba(245, 245, 245, 0.25);
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease,
+        transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn_secondary:hover {
+    border-color: rgba(245, 245, 245, 0.55);
+    background: rgba(245, 245, 245, 0.06);
+    transform: translateY(-1px);
+}
+
+.arrow {
+    transition: transform 0.2s ease;
+}
+
+.trust_row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 16px;
+    padding-top: 24px;
+    border-top: 0.5px solid rgba(245, 245, 245, 0.1);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.trust_item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-sage);
+}
+
+.trust_dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 72px 20px;
+    }
+
+    .btn_primary,
+    .btn_secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    .actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .trust_row {
+        gap: 16px;
+    }
+}
