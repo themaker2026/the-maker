@@ -11,14 +11,15 @@ export default function ProductCard({ product }) {
   const handleEnquire = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    router.push(`/contact?product=${product.slug}&name=${encodeURIComponent(product.name)}`)
+    router.push(
+      `/contact?product=${product.slug}&name=${encodeURIComponent(product.name)}`
+    )
   }
 
   return (
-    <div
+    <Link
+      href={`/products/${product.slug}`}
       className={s.card}
-      onClick={() => router.push(`/products/${product.slug}`)}
-      role="article"
     >
       {/* Image */}
       <div className={s.image_wrap}>
@@ -28,16 +29,14 @@ export default function ProductCard({ product }) {
             alt={product.name}
             fill
             className={s.image}
-            sizes="(max-width: 768px) 200px, 25vw"
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
         ) : (
           <div className={s.image_placeholder}>
             <svg
               className={s.placeholder_icon}
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
+              width="48" height="48"
+              viewBox="0 0 48 48" fill="none"
             >
               <ellipse cx="24" cy="32" rx="14" ry="16" fill="#BFC6C4"/>
               <ellipse cx="24" cy="22" rx="10" ry="8" fill="#CBE0E0"/>
@@ -51,16 +50,17 @@ export default function ProductCard({ product }) {
 
       {/* Body */}
       <div className={s.body}>
-        <div className={s.meta}>
-          <h3 className={s.name}>{product.name}</h3>
-        </div>
+        <h3 className={s.name}>{product.name}</h3>
         {product.category_name && (
           <span className={s.tag}>{product.category_name}</span>
         )}
-        <button className={s.enquire_btn} onClick={handleEnquire}>
+        <button
+          className={s.enquire_btn}
+          onClick={handleEnquire}
+        >
           Enquire
         </button>
       </div>
-    </div>
+    </Link>
   )
 }

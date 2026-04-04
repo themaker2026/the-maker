@@ -8,6 +8,7 @@
     transition: transform 0.22s ease, box-shadow 0.22s ease;
     cursor: pointer;
     flex-shrink: 0;
+    height: 100%;
 }
 
 .card:hover {
@@ -80,6 +81,7 @@
     padding: 3px 10px;
     border-radius: 100px;
     white-space: nowrap;
+    align-self: flex-start;
 }
 
 .enquire_btn {
