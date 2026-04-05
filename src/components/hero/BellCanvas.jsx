@@ -3,11 +3,12 @@
 import { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Environment, ContactShadows, Center } from "@react-three/drei";
-import { useScroll, useTransform, useSpring, motion } from "framer-motion";
+import { useScroll, useTransform, useSpring, motion, useInView } from "framer-motion";
 
 function BellModel({ scrollRotation, scrollY }) {
   const { scene } = useGLTF("/models/bell.glb");
   const groupRef = useRef();
+  const constantRotRef = useRef(0);
   
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 900 : false
@@ -24,11 +25,16 @@ function BellModel({ scrollRotation, scrollY }) {
   const scale = isMobile ? 1.9 : 1.75; 
   const baseY = isMobile ? -0.2 : 0.0;
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (!groupRef.current) return;
+    
+    // Clamp delta to max 0.1s to avoid huge rotation jumps when resuming from a paused state
+    const dt = Math.min(delta, 0.1);
+    constantRotRef.current += dt * 0.4; // Constant slow rotation multiplier
+    
     const t = state.clock.getElapsedTime();
     groupRef.current.rotation.y =
-      Math.sin(t * 0.3) * 0.12 + (scrollRotation.get() || 0);
+      constantRotRef.current + Math.sin(t * 0.3) * 0.12 + (scrollRotation.get() || 0);
     groupRef.current.position.y =
       baseY + Math.sin(t * 0.5) * 0.03 + (scrollY.get() || 0);
   });
@@ -64,6 +70,9 @@ function Lights() {
 }
 
 export default function BellCanvas() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef);
+
   const { scrollYProgress } = useScroll();
 
   const rotateY = useTransform(scrollYProgress, [0, 0.5], [0, Math.PI * 0.18]);
@@ -74,8 +83,9 @@ export default function BellCanvas() {
   const springPosY = useSpring(posY, { stiffness: 60, damping: 20 });
 
   return (
-    <motion.div style={{ width: "100%", height: "100%", opacity }}>
+    <motion.div ref={containerRef} style={{ width: "100%", height: "100%", opacity }}>
       <Canvas
+        frameloop={isInView ? "always" : "demand"}
         camera={{ position: [0, 0.5, 8.5], fov: 38 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
