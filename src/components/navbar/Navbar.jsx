@@ -242,31 +242,49 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className={s.mobile_menu}
           >
-            <form onSubmit={onSearchSubmit} className={s.mobile_search_form}>
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                <circle
-                  cx="6.5"
-                  cy="6.5"
-                  r="5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
+            <div className={s.mobile_search_wrapper}>
+              <form onSubmit={onSearchSubmit} className={s.mobile_search_form}>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                  <circle
+                    cx="6.5"
+                    cy="6.5"
+                    r="5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M10.5 10.5L14 14"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onFocus={() => {
+                    setSearchFocused(true);
+                    if (suggestions.length > 0) setIsOpen(true);
+                  }}
+                  placeholder="Search products..."
+                  className={s.mobile_search_input}
+                  autoComplete="off"
                 />
-                <path
-                  d="M10.5 10.5L14 14"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
+              </form>
+
+              {/* Show dropdown on mobile if open */}
+              {isOpen && searchFocused && (
+                <SearchDropdown
+                  suggestions={suggestions}
+                  query={query}
+                  onSelect={(item) => {
+                    onSelectSuggestion(item);
+                    setMobileOpen(false); // Make sure menu closes on click
+                  }}
                 />
-              </svg>
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search products..."
-                className={s.mobile_search_input}
-                autoComplete="off"
-              />
-            </form>
+              )}
+            </div>
 
             <nav className={s.mobile_nav}>
               {NAV_LINKS.map((link, i) => {

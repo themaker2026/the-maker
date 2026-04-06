@@ -44,18 +44,32 @@ export async function POST(req) {
 
     if (dbError) throw dbError
 
-    await supabase.functions.invoke('notify-owner', {
-      body: {
-        type: 'contact',
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone?.trim() || null,
-        country: country?.trim() || null,
-        company: company?.trim() || null,
-        product: product_interest?.trim() || null,
-        message: message.trim(),
-      },
+    // Send Email to Owner using Resend directly
+    const resend = new (require('resend').Resend)(process.env.RESEND_API_KEY)
+    
+    const { error: emailError } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'arham2004i@gmail.com',
+      subject: `New Inquiry from ${name.trim()}`,
+      html: `
+        <h2>New Contact Inquiry</h2>
+        <p><strong>Name:</strong> ${name.trim()}</p>
+        <p><strong>Email:</strong> ${email.trim()}</p>
+        <p><strong>Phone:</strong> ${phone?.trim() || 'N/A'}</p>
+        <p><strong>Country:</strong> ${country?.trim() || 'N/A'}</p>
+        <p><strong>Company:</strong> ${company?.trim() || 'N/A'}</p>
+        <p><strong>Product Interest:</strong> ${product_interest?.trim() || 'N/A'}</p>
+        <hr />
+        <p><strong>Message:</strong></p>
+        <p style="white-space: pre-wrap">${message.trim()}</p>
+      `
     })
+
+    if (emailError) {
+      console.error('Resend email error:', emailError)
+      // We still return success:true so the user sees the confirmation card,
+      // since their data is already saved to the database.
+    }
 
     return Response.json({ success: true })
   } catch (err) {

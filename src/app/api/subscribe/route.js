@@ -28,10 +28,23 @@ export async function POST(req) {
       throw dbError
     }
 
-    // Notify owner via Edge Function
-    await supabase.functions.invoke('notify-owner', {
-      body: { type: 'subscriber', email },
+    // Notify owner via Resend directly
+    const resend = new (require('resend').Resend)(process.env.RESEND_API_KEY)
+    
+    const { error: emailError } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'arham2004i@gmail.com',
+      subject: `New Newsletter Subscriber!`,
+      html: `
+        <h2>New Subscriber</h2>
+        <p>A new user has subscribed to the newsletter:</p>
+        <p><strong>Email:</strong> ${email.trim()}</p>
+      `
     })
+
+    if (emailError) {
+      console.error('Resend subscribe email error:', emailError)
+    }
 
     return Response.json({ success: true })
   } catch (err) {
