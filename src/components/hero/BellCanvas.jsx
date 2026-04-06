@@ -21,8 +21,8 @@ function BellModel({ scrollRotation, scrollY }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Adjusted scale to match the reference images now that Centering is fixed
-  const scale = isMobile ? 1.9 : 1.75; 
+  // Increased mobile scale significantly as requested, while keeping desktop the same
+  const scale = isMobile ? 2.4 : 1.75; 
   const baseY = isMobile ? -0.2 : 0.0;
 
   useFrame((state, delta) => {
@@ -39,6 +39,22 @@ function BellModel({ scrollRotation, scrollY }) {
       baseY + Math.sin(t * 0.5) * 0.03 + (scrollY.get() || 0);
   });
 
+  // Enhance material properties without touching the original .glb file
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh && child.material) {
+        child.material.envMapIntensity = 1.6; // Boosts reflection brightness (default is 1)
+        child.material.roughness = 0.15; // Makes the brass slightly smoother/shinier
+        child.material.metalness = 0.9; // Forces the material to act like pure metal
+        child.material.color.set("#d4af37"); // Injects a rich, premium "Golden" hue (Metallic Gold hex)
+        child.material.needsUpdate = true;
+      }
+    });
+  }, [scene]);
+
+  // Tilt the bell backward slightly on mobile to reveal more of the underlying bottom
+  const initRotation = isMobile ? [-0.20, 0, 0] : [0.02, 0, 0];
+
   return (
     <group ref={groupRef} dispose={null}>
       <Center>
@@ -46,7 +62,7 @@ function BellModel({ scrollRotation, scrollY }) {
           object={scene}
           scale={scale}
           position={[0, 0, 0]}
-          rotation={[0.02, 0, 0]}
+          rotation={initRotation}
         />
       </Center>
     </group>
@@ -91,8 +107,8 @@ export default function BellCanvas() {
         gl={{ 
           antialias: true, 
           alpha: true, 
-          powerPreference: "high-performance",
-          precision: "mediump" // Critical to prevent crash on lower-end mobile GPUs
+          powerPreference: "high-performance"
+          // Removed manual mediump precision: allowing highp restores smooth metallic reflections automatically!
         }}
         style={{ background: "transparent" }}
       >
