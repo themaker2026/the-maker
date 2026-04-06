@@ -21,9 +21,9 @@ function BellModel({ scrollRotation, scrollY }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Increased mobile scale significantly as requested, while keeping desktop the same
-  const scale = isMobile ? 2.4 : 1.75; 
-  const baseY = isMobile ? -0.2 : 0.0;
+  const scale = isMobile ? 2.25 : 1.75; 
+  // We handle vertical centering from the parent group now, so reset local Y
+  const baseY = 0.0;
 
   useFrame((state, delta) => {
     if (!groupRef.current) return;
@@ -89,6 +89,17 @@ export default function BellCanvas() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef);
 
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 900 : false
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const { scrollYProgress } = useScroll();
 
   const rotateY = useTransform(scrollYProgress, [0, 0.5], [0, Math.PI * 0.18]);
@@ -114,16 +125,18 @@ export default function BellCanvas() {
       >
         <Lights />
         <Suspense fallback={null}>
-          <BellModel scrollRotation={springRotateY} scrollY={springPosY} />
-          <ContactShadows
-            position={[0, -1.8, 0]}
-            opacity={0.3}
-            scale={7}
-            blur={1.5}
-            far={2}
-            resolution={256} // Lower resolution texturing to save VRAM
-            color="#0f2b2b"
-          />
+          <group position={[0, 0, 0]}>
+            <BellModel scrollRotation={springRotateY} scrollY={springPosY} />
+            <ContactShadows
+              position={[0, -1.8, 0]}
+              opacity={0.3}
+              scale={7}
+              blur={1.5}
+              far={2}
+              resolution={256} // Lower resolution texturing to save VRAM
+              color="#0f2b2b"
+            />
+          </group>
           <Environment preset="studio" />
         </Suspense>
       </Canvas>
