@@ -87,8 +87,13 @@ export default function BellCanvas() {
       <Canvas
         frameloop={isInView ? "always" : "demand"}
         camera={{ position: [0, 0.5, 8.5], fov: 38 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 1.5]} // Cap DPR to prevent memory exhaustion on high-res mobile devices
+        gl={{ 
+          antialias: true, 
+          alpha: true, 
+          powerPreference: "high-performance",
+          precision: "mediump" // Critical to prevent crash on lower-end mobile GPUs
+        }}
         style={{ background: "transparent" }}
       >
         <Lights />
@@ -100,6 +105,7 @@ export default function BellCanvas() {
             scale={7}
             blur={1.5}
             far={2}
+            resolution={256} // Lower resolution texturing to save VRAM
             color="#0f2b2b"
           />
           <Environment preset="studio" />
