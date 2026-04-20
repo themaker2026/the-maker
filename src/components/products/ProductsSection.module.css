@@ -53,9 +53,9 @@
 
 .subheading {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
-    color: #888;
+    color: #000000;
     margin-top: 16px;
     line-height: 1.6;
 }
@@ -72,7 +72,18 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    margin-bottom: 32px;
+}
+
+.all_categories_wrap {
+    display: flex;
+    justify-content: center;
     margin-bottom: 64px;
+}
+
+.cat_card_wrap {
+    display: flex;
+    height: 100%;
 }
 
 .cat_card {
@@ -82,6 +93,7 @@
     padding: 28px 24px;
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 16px;
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     text-decoration: none;
@@ -125,16 +137,16 @@
 
 .cat_subtitle {
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
-    color: var(--color-sage);
+    color: #333333;
 }
 
 .cat_description {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 300;
-    color: #777;
+    color: #333333;
     line-height: 1.65;
     flex: 1;
 }
@@ -148,8 +160,8 @@
 
 .cat_count {
     font-family: var(--font-body);
-    font-size: 11px;
-    color: var(--color-sage);
+    font-size: 13px;
+    color: #333333;
 }
 
 .cat_count span {
@@ -159,7 +171,7 @@
 
 .cat_cta {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-teal);
     display: flex;
@@ -196,7 +208,7 @@
 
 .view_all {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--color-teal);
     text-decoration: none;
@@ -292,7 +304,7 @@
     grid-column: 1 / -1;
     text-align: center;
     padding: 48px 0;
-    color: var(--color-sage);
+    color: #333333;
     font-family: var(--font-body);
     font-size: 14px;
 }
@@ -302,6 +314,18 @@
         padding: 64px 0 56px;
     }
 
+    .subheading {
+        font-size: 15px;
+    }
+
+    .cat_subtitle {
+        font-size: 11px;
+    }
+
+    .view_all {
+        font-size: 13px;
+    }
+
     .inner {
         padding: 0 20px;
     }
@@ -309,6 +333,10 @@
     .categories {
         grid-template-columns: 1fr;
         gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .all_categories_wrap {
         margin-bottom: 40px;
     }
 

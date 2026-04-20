@@ -42,7 +42,7 @@
 }
 
 .navbar_link {
-    font-size: 13.5px;
+    font-size: 18px;
     font-weight: 400;
     color: var(--color-charcoal);
     text-decoration: none;
@@ -105,7 +105,7 @@
 .search_input {
     border: none;
     outline: none;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--color-charcoal);
     background: transparent;
     font-family: var(--font-body);
@@ -135,7 +135,7 @@
 .navbar_cta {
     background: var(--color-teal);
     color: var(--color-white);
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 500;
     padding: 8px 18px;
     border-radius: 7px;

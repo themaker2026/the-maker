@@ -58,9 +58,9 @@
 
 .hero_sub {
     font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 300;
-    color: #777;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--color-charcoal);
     line-height: 1.6;
 }
 
@@ -118,7 +118,7 @@
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
     line-height: 1.8;
 }
 
@@ -193,7 +193,7 @@
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 300;
-    color: #888;
+    color: #000000;
     margin-top: 12px;
     line-height: 1.6;
 }
@@ -265,9 +265,9 @@
 
 .step_desc {
     font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 300;
-    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-charcoal);
     line-height: 1.65;
 }
 
@@ -411,7 +411,7 @@
     }
 
     .process {
-        padding: 60px 0;
+        padding: 56px 0;
     }
 
     .steps {
@@ -430,7 +430,7 @@
     }
 
     .strip {
-        padding: 0 0 60px;
+        padding: 56px 0;
     }
 
     .mission {
@@ -450,4 +450,14 @@
     .steps {
         grid-template-columns: 1fr;
     }
+}
+
+/* ── Desktop Typography Scale Up ── */
+@media (min-width: 901px) {
+    .hero_sub { font-size: 19px; }
+    .body_text { font-size: 17px; }
+    .process_sub { font-size: 17px; }
+    .step_desc { font-size: 15px; }
+    .mission_attr { font-size: 15px; }
+    .mission_cta { font-size: 16px; padding: 16px 32px; }
 }

@@ -1,46 +1,21 @@
-"use client";
+'use client'
 
-import { useRef, Suspense } from "react";
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
-import s from "./Hero.module.css";
-
-const BellCanvas = dynamic(() => import("./BellCanvas"), {
-  ssr: false,
-  loading: () => (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          width: 120,
-          height: 140,
-          borderRadius: "50% 50% 45% 45%",
-          background: "linear-gradient(160deg, #E8EDED 0%, #CBE0E0 100%)",
-          opacity: 0.6,
-        }}
-      />
-    </div>
-  ),
-});
+import { useRef } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import s from './Hero.module.css'
 
 const STATS = [
-  { value: "500+", label: "Products" },
-  { value: "30+", label: "Countries" },
-  { value: "15+", label: "Years of Craft" },
-];
+  { value: '500+', label: 'Products' },
+  { value: '30+',  label: 'Countries' },
+  { value: '15+',  label: 'Years of Craft' },
+]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
-};
+  show:   { opacity: 1, y: 0 },
+}
 
 const stagger = {
   show: {
@@ -48,22 +23,36 @@ const stagger = {
       staggerChildren: 0.12,
     },
   },
-};
+}
 
 export default function Hero() {
   return (
     <section className={s.hero}>
-      {/* Soft teal glow — right side only */}
-      <div className={s.glow} aria-hidden="true" />
 
+      {/* Background photo */}
+      <div className={s.bg_image_wrap}>
+        <Image
+          src="/homepageBell.webp"
+          alt="Handcrafted brass bell — The Maker"
+          fill
+          priority
+          className={s.bg_image}
+          sizes="100vw"
+        />
+      </div>
+
+      {/* Gradient overlay — dark left, clear right */}
+      <div className={s.overlay} aria-hidden="true" />
+
+      {/* Content — vertically centred */}
       <div className={s.inner}>
-        {/* ── LEFT — Copy ── */}
         <motion.div
           className={s.left}
           variants={stagger}
           initial="hidden"
           animate="show"
         >
+
           {/* Eyebrow */}
           <motion.div className={s.eyebrow} variants={fadeUp}>
             <span className={s.eyebrow_line} />
@@ -81,9 +70,9 @@ export default function Hero() {
 
           {/* Body */}
           <motion.p className={s.body} variants={fadeUp}>
-            Premium brass handicrafts — bells, key rings, and decorative items —
-            made by skilled artisans and exported to discerning buyers across
-            the world.
+            Premium brass handicrafts — bells, key rings, and decorative
+            items — made by skilled artisans and exported to discerning
+            buyers across the world.
           </motion.p>
 
           {/* CTAs */}
@@ -105,31 +94,22 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
+
         </motion.div>
-
-        {/* ── RIGHT — 3D Bell ── */}
-        <div className={s.right}>
-          <div className={s.canvas_wrap}>
-            <BellCanvas />
-          </div>
-
-          {/* Scroll hint */}
-          <div className={s.scroll_hint}>
-            <div className={s.scroll_dot}>
-              <motion.div
-                className={s.scroll_dot_inner}
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 1.6,
-                  ease: "easeInOut",
-                }}
-              />
-            </div>
-            Scroll to explore
-          </div>
-        </div>
       </div>
+
+      {/* Scroll hint */}
+      <div className={s.scroll_hint}>
+        <div className={s.scroll_dot}>
+          <motion.div
+            className={s.scroll_dot_inner}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          />
+        </div>
+        Scroll to explore
+      </div>
+
     </section>
-  );
+  )
 }

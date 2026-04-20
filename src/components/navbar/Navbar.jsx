@@ -22,6 +22,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
   const searchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
   const inputRef = useRef(null);
 
   const {
@@ -48,13 +49,25 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
+      let isInside = false;
+      if (searchRef.current && searchRef.current.contains(e.target)) {
+        isInside = true;
+      }
+      if (mobileSearchRef.current && mobileSearchRef.current.contains(e.target)) {
+        isInside = true;
+      }
+
+      if (!isInside) {
         setIsOpen(false);
         setSearchFocused(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, [setIsOpen]);
 
   const onSearchSubmit = (e) => {
@@ -242,7 +255,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className={s.mobile_menu}
           >
-            <div className={s.mobile_search_wrapper}>
+            <div ref={mobileSearchRef} className={s.mobile_search_wrapper}>
               <form onSubmit={onSearchSubmit} className={s.mobile_search_form}>
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
                   <circle

@@ -87,6 +87,7 @@ export default function ProductsSection() {
         `)
         .eq('is_active', true)
         .eq('is_featured', true)
+        .order('created_at', { ascending: false })
         .limit(4)
 
       // Category counts
@@ -167,7 +168,7 @@ export default function ProductsSection() {
           animate={inView ? 'show' : 'hidden'}
         >
           {CATEGORIES.map((cat) => (
-            <motion.div key={cat.slug} variants={fadeUp}>
+            <motion.div key={cat.slug} variants={fadeUp} className={s.cat_card_wrap}>
               <Link
                 href={`/products?category=${cat.slug}`}
                 className={s.cat_card}
@@ -206,6 +207,18 @@ export default function ProductsSection() {
               </Link>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* ── Show All Categories Button ── */}
+        <motion.div
+          className={s.all_categories_wrap}
+          variants={fadeUp}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+        >
+          <Link href="/products" className={s.view_all}>
+            Show All Categories →
+          </Link>
         </motion.div>
 
         {/* ── Divider ── */}

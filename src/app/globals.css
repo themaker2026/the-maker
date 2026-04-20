@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
 
 :root {
-  --color-bg: #F5F5F5;
+  --color-bg: #BFC6C4;
   --color-panel: #CBE0E0;
   --color-teal: #007677;
   --color-teal-light: #E1F5EE;
   --color-sage: #BFC6C4;
-  --color-charcoal: #2D2D2D;
+  --color-charcoal: #000000;
   --color-white: #ffffff;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: var(--font-playfair-display);
+  --font-body: var(--font-playfair-display);
   --nav-height: 64px;
   --nav-height-scrolled: 56px;
   --transition-base: 0.2s ease;

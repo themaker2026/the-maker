@@ -81,7 +81,7 @@
     font-family: var(--font-body);
     font-size: 16px;
     font-weight: 400;
-    color: #444;
+    color: #000000;
     line-height: 1.75;
     max-width: 320px;
 }
@@ -157,7 +157,7 @@
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
     line-height: 1.65;
     margin: 0;
 }
@@ -217,4 +217,11 @@
         font-size: 17px;
         margin-bottom: 6px;
     }
+}
+
+/* ── Desktop Typography Scale Up ── */
+@media (min-width: 901px) {
+    .body { font-size: 18px; }
+    .cta { font-size: 15px; padding: 14px 28px; }
+    .card_body { font-size: 15px; }
 }

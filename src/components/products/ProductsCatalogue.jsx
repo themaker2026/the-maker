@@ -9,13 +9,6 @@ import s from './Products.module.css'
 
 const PAGE_SIZE = 8
 
-const CATEGORIES = [
-  { label: 'All',               slug: null },
-  { label: 'Bells',             slug: 'bells' },
-  { label: 'Key Rings',         slug: 'key-rings' },
-  { label: 'Brass Handicrafts', slug: 'brass-handicrafts' },
-]
-
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
@@ -50,6 +43,21 @@ export default function ProductsCatalogue() {
 
   const [activeCategory, setActiveCategory] = useState(urlCategory || null)
   const [searchQuery, setSearchQuery]       = useState(urlQuery || '')
+
+  const [categories, setCategories] = useState([{ label: 'All', slug: null }])
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const { data } = await supabase.from('categories').select('name, slug').order('name')
+      if (data) {
+        setCategories([
+          { label: 'All', slug: null },
+          ...data.map((c) => ({ label: c.name, slug: c.slug }))
+        ])
+      }
+    }
+    fetchCategories()
+  }, [supabase])
 
   const fetchProducts = useCallback(async ({
     category,
@@ -188,7 +196,7 @@ export default function ProductsCatalogue() {
           <div className={s.filter_hint_mobile}>&larr; swipe to filter &rarr;</div>
           <div className={s.filter_bar_inner}>
             <div className={s.filter_pills}>
-              {CATEGORIES.map((cat) => {
+              {categories.map((cat) => {
                 const isActive = cat.slug === activeCategory ||
                   (cat.slug === null && !activeCategory)
                 return (
@@ -298,7 +306,7 @@ export default function ProductsCatalogue() {
               </div>
             ) : (
               <div className={s.info_text}>
-                Showing {products.length} of {total} result{total !== 1 ? 's' : ''} {activeCategory ? `in ${CATEGORIES.find(c => c.slug === activeCategory)?.label || 'Category'}` : `for "${searchQuery}"`}
+                Showing {products.length} of {total} result{total !== 1 ? 's' : ''} {activeCategory ? `in ${categories.find(c => c.slug === activeCategory)?.label || 'Category'}` : `for "${searchQuery}"`}
               </div>
             )}
           </div>

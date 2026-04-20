@@ -112,6 +112,7 @@ export default function ProductDetail({ product, related }) {
                 className={s.main_image}
                 sizes="(max-width: 900px) 100vw, 50vw"
                 priority
+                loading="eager"
               />
             ) : (
               <div className={s.image_placeholder}>
@@ -142,6 +143,8 @@ export default function ProductDetail({ product, related }) {
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes="80px"
+                    priority
+                    loading="eager"
                   />
                 </button>
               ))}

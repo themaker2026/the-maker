@@ -60,9 +60,9 @@
 
 .hero_sub {
     font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: #777;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--color-charcoal);
     line-height: 1.6;
 }
 
@@ -219,7 +219,7 @@ a.contact_item_value:hover {
     font-family: var(--font-body);
     font-size: 11px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
 }
 
 /* What happens next */
@@ -266,7 +266,7 @@ a.contact_item_value:hover {
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
     line-height: 1.5;
     padding-top: 3px;
 }
@@ -449,7 +449,7 @@ a.contact_item_value:hover {
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
     line-height: 1.65;
     max-width: 380px;
 }
@@ -539,4 +539,19 @@ a.contact_item_value:hover {
         width: 100%;
         justify-content: center;
     }
+}
+
+/* ── Desktop Typography Scale Up ── */
+@media (min-width: 901px) {
+    .hero_sub { font-size: 19px; }
+    .contact_item_value { font-size: 15px; }
+    .whatsapp_btn { font-size: 15px; padding: 14px 20px; }
+    .response_text { font-size: 14px; }
+    .response_sub { font-size: 13px; }
+    .step_text { font-size: 15px; }
+    .field_label { font-size: 14px; }
+    .field_input { font-size: 16px; }
+    .submit_btn { font-size: 16px; padding: 16px 32px; }
+    .success_body { font-size: 17px; }
+    .success_btn_primary, .success_btn_secondary { font-size: 15px; padding: 14px 28px; }
 }

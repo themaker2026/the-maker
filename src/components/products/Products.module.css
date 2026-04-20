@@ -49,9 +49,9 @@
 
 .hero_sub {
     font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 300;
-    color: #777;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--color-charcoal);
     line-height: 1.6;
 }
 
@@ -98,9 +98,9 @@
 
 .pill {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
-    color: #777;
+    color: #333333;
     background: var(--color-bg);
     border: 0.5px solid var(--color-panel);
     border-radius: 100px;
@@ -147,7 +147,7 @@
 .result_count {
     font-family: var(--font-body);
     font-size: 12px;
-    color: var(--color-sage);
+    color: #333333;
     white-space: nowrap;
 }
 
@@ -162,8 +162,8 @@
     border-radius: 6px;
     padding: 6px 12px;
     font-family: var(--font-body);
-    font-size: 12px;
-    color: #555;
+    font-size: 13px;
+    color: #111111;
     cursor: pointer;
     transition: border-color 0.18s ease;
 }
@@ -176,7 +176,7 @@
     display: none;
     font-family: var(--font-body);
     font-size: 11px;
-    color: #999;
+    color: #333333;
     text-align: center;
     margin-bottom: 8px;
     letter-spacing: 0.05em;
@@ -318,9 +318,9 @@
 
 .empty_body {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
-    color: #888;
+    color: #000000;
     max-width: 320px;
     line-height: 1.6;
 }
@@ -329,7 +329,7 @@
     background: var(--color-teal);
     color: var(--color-white);
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     padding: 11px 24px;
     border-radius: 8px;
@@ -367,8 +367,8 @@
 
 .info_text {
     font-family: var(--font-body);
-    font-size: 13px;
-    color: var(--color-sage);
+    font-size: 15px;
+    color: #333333;
     text-align: center;
 }
 
@@ -376,7 +376,7 @@
     background: transparent;
     color: var(--color-charcoal);
     font-family: var(--font-body);
-    font-size: 13.5px;
+    font-size: 15px;
     font-weight: 500;
     padding: 12px 36px;
     border-radius: 8px;
@@ -403,6 +403,30 @@
 @media (max-width: 900px) {
     .hero {
         padding: 100px 20px 48px;
+    }
+
+    .hero_sub {
+        font-size: 17px;
+    }
+
+    .pill {
+        font-size: 12px;
+    }
+
+    .empty_body {
+        font-size: 14px;
+    }
+
+    .empty_btn {
+        font-size: 13px;
+    }
+
+    .info_text {
+        font-size: 13px;
+    }
+
+    .load_more_btn {
+        font-size: 13.5px;
     }
 
     .catalogue {

@@ -118,7 +118,7 @@
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 300;
-    color: #666;
+    color: #222222;
     line-height: 1.8;
     max-width: 440px;
 }
@@ -237,4 +237,10 @@
     .stats {
         justify-content: flex-start;
     }
+}
+
+/* ── Desktop Typography Scale Up ── */
+@media (min-width: 901px) {
+    .body { font-size: 17px; }
+    .btn { font-size: 15px; padding: 14px 28px; }
 }
