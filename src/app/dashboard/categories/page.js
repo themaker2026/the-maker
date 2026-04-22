@@ -59,6 +59,56 @@ export default function CategoriesPage() {
     showToast(`"${data.name}" added.`)
   }
 
+  const handleDelete = async (catId, catName) => {
+    if (!window.confirm(`Are you sure you want to delete "${catName}"? This will also delete all associated products and their images.`)) return
+
+    const { data: products } = await supabase
+      .from('products')
+      .select('id, images')
+      .eq('category_id', catId)
+
+    if (products && products.length > 0) {
+      const pathsToDelete = []
+      for (const product of products) {
+        if (product.images && product.images.length > 0) {
+          for (const url of product.images) {
+            const match = url.match(/\/public\/product-images\/(.+)$/)
+            if (match && match[1]) {
+              pathsToDelete.push(match[1])
+            }
+          }
+        }
+      }
+
+      if (pathsToDelete.length > 0) {
+        await supabase.storage.from('product-images').remove(pathsToDelete)
+      }
+
+      const { error: productsError } = await supabase
+        .from('products')
+        .delete()
+        .eq('category_id', catId)
+
+      if (productsError) {
+        showToast('Failed to delete associated products.', 'error')
+        return
+      }
+    }
+
+    const { error: categoryError } = await supabase
+      .from('categories')
+      .delete()
+      .eq('id', catId)
+
+    if (categoryError) {
+      showToast('Failed to delete category.', 'error')
+      return
+    }
+
+    setCategories((prev) => prev.filter((c) => c.id !== catId))
+    showToast(`Category "${catName}" and associated products deleted.`)
+  }
+
   return (
     <>
       <div className={s.page_header}>
@@ -124,6 +174,7 @@ export default function CategoriesPage() {
                   <th>Slug</th>
                   <th>Description</th>
                   <th>Products</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,6 +186,15 @@ export default function CategoriesPage() {
                     </td>
                     <td>{cat.description || '—'}</td>
                     <td>{cat.products?.[0]?.count || 0}</td>
+                    <td>
+                      <button
+                        className={s.btn_secondary}
+                        style={{ fontSize: '12px', padding: '5px 10px', color: '#ff4d4f', borderColor: '#ff4d4f' }}
+                        onClick={() => handleDelete(cat.id, cat.name)}
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

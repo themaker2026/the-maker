@@ -37,7 +37,7 @@ export default function BellBrandSection() {
           <span className={s.brand_maker}>Maker</span>
         </h2>
         <p className={s.tagline}>
-          Moradabad &nbsp;·&nbsp; India &nbsp;·&nbsp; Est. 2023
+          India &nbsp;·&nbsp; Est. 2023
         </p>
       </motion.div>
 

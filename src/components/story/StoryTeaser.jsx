@@ -72,7 +72,7 @@ export default function StoryTeaser() {
           </motion.div>
 
           <motion.h2 className={s.headline} variants={fadeUp}>
-            Made in Moradabad.
+            Made in India.
             <span className={s.headline_italic}>Sold to the World.</span>
           </motion.h2>
 
