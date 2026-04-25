@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import s from './About.module.css'
 
 export default function FounderStory() {
@@ -35,23 +36,14 @@ export default function FounderStory() {
 
         {/* Right — photo placeholder */}
         <div className={s.founder_photo}>
-          <div className={s.photo_placeholder}>
-            <div className={s.placeholder_inner}>
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect
-                  x="4" y="8" width="40" height="32" rx="4"
-                  stroke="#BFC6C4" strokeWidth="1.5"
-                />
-                <circle cx="16" cy="20" r="4" stroke="#BFC6C4" strokeWidth="1.5" />
-                <path
-                  d="M4 32l10-8 8 6 6-5 12 9"
-                  stroke="#BFC6C4" strokeWidth="1.5"
-                  strokeLinecap="round" strokeLinejoin="round"
-                />
-              </svg>
-              <p className={s.placeholder_label}>Workshop or founder photo</p>
-              <p className={s.placeholder_hint}>Replace via Supabase Storage</p>
-            </div>
+          <div className={s.photo_placeholder} style={{ overflow: 'hidden' }}>
+            <Image
+              src="/AboutWorkShop1.webp"
+              alt="Workshop photo"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
           </div>
           <div className={s.photo_accent} />
         </div>

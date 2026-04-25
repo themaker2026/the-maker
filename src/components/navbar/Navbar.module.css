@@ -22,6 +22,9 @@
 }
 
 .navbar_logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-family: var(--font-display);
     font-size: 22px;
     font-weight: 600;
@@ -29,6 +32,11 @@
     text-decoration: none;
     white-space: nowrap;
     letter-spacing: 0.01em;
+}
+
+.logo_image {
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .navbar_logo span {

@@ -237,10 +237,10 @@ export default function Footer() {
                 </svg>
               </span>
               <a
-                href="tel:+91XXXXXXXXXX"
+                href="tel:+919027432715"
                 className={s.contact_text}
               >
-                +91 XXXXX XXXXX
+                +91 90274 32715
               </a>
             </div>
 
@@ -256,8 +256,9 @@ export default function Footer() {
                 </svg>
               </span>
               <span className={s.contact_text}>
-                Moradabad, Uttar Pradesh
-                <br />India — 244001
+                BUILDING NO. 88, LAL MASJID ROAD,
+                <br />GULZARIMAL SARAI, MORADABAD,
+                <br />U.P. - 244001
               </span>
             </div>
 
@@ -265,14 +266,14 @@ export default function Footer() {
             <div className={s.map_wrap}>
               <iframe
                 className={s.map_iframe}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55967.27520819645!2d78.7359!3d28.8386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390afef0efbfffff%3A0x3273c64df51f4b6e!2sMoradabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1620000000000"
+                src="https://maps.google.com/maps?q=Building+No.+88,+Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+U.P.+-+244001&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="The Maker — Moradabad, India"
               />
               <a
-                href="https://maps.google.com/?q=Moradabad,Uttar+Pradesh,India"
+                href="https://maps.google.com/?q=Building+No.+88,+Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+U.P.+-+244001"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={s.map_link}

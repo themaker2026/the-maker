@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSearch } from '@/hooks/useSearch'
@@ -116,7 +117,15 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className={s.navbar_logo}>
-            The <span>Maker</span>
+            <Image 
+              src="/logo.png" 
+              alt="The Maker" 
+              width={40} 
+              height={40} 
+              className={s.logo_image} 
+              priority
+            />
+            <div>The <span>Maker</span></div>
           </Link>
 
           {/* Desktop nav */}

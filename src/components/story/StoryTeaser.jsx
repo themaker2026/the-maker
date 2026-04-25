@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import s from './StoryTeaser.module.css'
@@ -35,26 +36,13 @@ export default function StoryTeaser() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <div className={s.photo_wrap}>
-            <div className={s.photo_placeholder}>
-              <svg width="52" height="52" viewBox="0 0 48 48" fill="none">
-                <rect
-                  x="4" y="8" width="40" height="32" rx="4"
-                  stroke="#BFC6C4" strokeWidth="1.5"
-                />
-                <circle
-                  cx="16" cy="20" r="4"
-                  stroke="#BFC6C4" strokeWidth="1.5"
-                />
-                <path
-                  d="M4 32l10-8 8 6 6-5 12 9"
-                  stroke="#BFC6C4" strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <p className={s.placeholder_label}>Moradabad workshop photo</p>
-              <p className={s.placeholder_hint}>Replace via Supabase Storage</p>
-            </div>
+            <Image
+              src="/HomeWorkShop.webp"
+              alt="Moradabad workshop photo"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+            />
           </div>
           <div className={s.photo_accent} />
         </motion.div>

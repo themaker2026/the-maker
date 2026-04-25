@@ -220,7 +220,7 @@ export default function ProductDetail({ product, related }) {
             </Link>
 
             <a
-              href={`https://wa.me/91XXXXXXXXXX?text=${whatsappText}`}
+              href={`https://wa.me/919027432715?text=${whatsappText}`}
               target="_blank"
               rel="noopener noreferrer"
               className={s.btn_whatsapp}

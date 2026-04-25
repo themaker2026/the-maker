@@ -32,7 +32,7 @@ export default function Hero() {
       {/* Background photo */}
       <div className={s.bg_image_wrap}>
         <Image
-          src="/homepageBell.webp"
+          src="/NewHomeBell.webp"
           alt="Handcrafted brass bell — The Maker"
           fill
           priority

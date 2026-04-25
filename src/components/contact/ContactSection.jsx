@@ -33,9 +33,9 @@ const CONTACT_ITEMS = [
   },
   {
     label: 'Phone',
-    value: '+91 XXXXX XXXXX',
+    value: '+91 90274 32715',
     subtext: 'Mon–Sat, 9am–6pm IST',
-    href: 'tel:+91XXXXXXXXXX',
+    href: 'tel:+919027432715',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
         <path
@@ -48,8 +48,8 @@ const CONTACT_ITEMS = [
   },
   {
     label: 'Address',
-    value: 'Moradabad, Uttar Pradesh',
-    subtext: 'India — 244001',
+    value: 'BUILDING NO. 88, LAL MASJID ROAD',
+    subtext: 'GULZARIMAL SARAI, MORADABAD, U.P. - 244001',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
         <path
@@ -158,7 +158,7 @@ export default function ContactSection() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/919927370656"
+            href="https://wa.me/919027432715"
             target="_blank"
             rel="noopener noreferrer"
             className={s.whatsapp_btn}
