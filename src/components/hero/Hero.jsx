@@ -33,7 +33,7 @@ export default function Hero() {
       <div className={s.bg_image_wrap}>
         <Image
           src="/NewHomeBell.webp"
-          alt="Handcrafted brass bell — The Maker"
+          alt="Premium brass bell handcrafted in Moradabad India — The Maker export"
           fill
           priority
           className={s.bg_image}

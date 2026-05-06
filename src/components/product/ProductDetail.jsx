@@ -113,6 +113,7 @@ export default function ProductDetail({ product, related }) {
                 sizes="(max-width: 900px) 100vw, 50vw"
                 priority
                 loading="eager"
+                unoptimized={process.env.NODE_ENV === 'development'}
               />
             ) : (
               <div className={s.image_placeholder}>
@@ -145,6 +146,7 @@ export default function ProductDetail({ product, related }) {
                     sizes="80px"
                     priority
                     loading="eager"
+                    unoptimized={process.env.NODE_ENV === 'development'}
                   />
                 </button>
               ))}

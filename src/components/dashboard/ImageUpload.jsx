@@ -67,7 +67,7 @@ export default function ImageUpload({ previews, uploading, onUpload, onRemove })
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="120px"
-                unoptimized
+                unoptimized={process.env.NODE_ENV === 'development'}
               />
               <span className={s.image_preview_order}>{i + 1}</span>
               <button

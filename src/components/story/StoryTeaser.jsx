@@ -38,8 +38,7 @@ export default function StoryTeaser() {
           <div className={s.photo_wrap}>
             <Image
               src="/HomeWorkShop.webp"
-              alt="Moradabad workshop photo"
-              fill
+              alt="Brass handicraft workshop in Moradabad India — The Maker"              fill
               sizes="(max-width: 900px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
             />

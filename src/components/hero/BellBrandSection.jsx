@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 import s from './BellBrandSection.module.css'
 
 const BellCanvasBackground = dynamic(
@@ -13,12 +14,14 @@ const BellCanvasBackground = dynamic(
 )
 
 export default function BellBrandSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '200px' })
+
   return (
-    <section className={s.section}>
+    <section className={s.section} ref={ref}>
 
       {/* 3D bell canvas — full section background */}
       <div className={s.canvas_wrap} aria-hidden="true">
-        <BellCanvasBackground />
+        {inView && <BellCanvasBackground />}
       </div>
 
       {/* Teal tint overlay */}

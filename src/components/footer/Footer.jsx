@@ -21,7 +21,7 @@ const CATEGORIES = [
 const SOCIALS = [
   {
     label: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/company/themaker',
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
         <path
@@ -35,7 +35,7 @@ const SOCIALS = [
   },
   {
     label: 'Facebook',
-    href: '#',
+    href: 'https://www.facebook.com/themaker',
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
         <path
@@ -48,7 +48,7 @@ const SOCIALS = [
   },
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/themaker',
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
         <rect x="2" y="2" width="20" height="20" rx="5"
@@ -266,14 +266,14 @@ export default function Footer() {
             <div className={s.map_wrap}>
               <iframe
                 className={s.map_iframe}
-                src="https://maps.google.com/maps?q=Building+No.+88,+Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+U.P.+-+244001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+Uttar+Pradesh+244001&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="The Maker — Moradabad, India"
               />
               <a
-                href="https://maps.google.com/?q=Building+No.+88,+Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+U.P.+-+244001"
+                href="https://maps.google.com/?q=Lal+Masjid+Road,+Gulzarimal+Sarai,+Moradabad,+Uttar+Pradesh+244001"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={s.map_link}
@@ -294,13 +294,23 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className={s.bottom}>
-          <p className={s.copyright}>
-            © {new Date().getFullYear()} The Maker. All rights reserved.
-          </p>
-          <p className={s.made_in}>
-            Made in Moradabad, India
-          </p>
-        </div>
+  <p className={s.copyright}>
+    © {new Date().getFullYear()} The Maker. All rights reserved.
+  </p>
+  <p className={s.made_in}>
+    Made in Moradabad, India
+  </p>
+  <p className={s.credit}>
+    Designed &amp; developed by{' '}
+    <a href="https://arham-portfolio.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={s.credit_link}
+    >
+      Arham
+    </a>
+  </p>
+</div>
       </div>
     </footer>
   )

@@ -30,7 +30,7 @@ export default function ProductCard({ product }) {
             fill
             className={s.image}
             sizes="(max-width: 768px) 50vw, 25vw"
-            unoptimized
+            unoptimized={process.env.NODE_ENV === 'development'}
           />
         ) : (
           <div className={s.image_placeholder}>

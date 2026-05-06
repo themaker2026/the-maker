@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Maker — Brass Handicraft Export Platform
 
-## Getting Started
+A full-stack Next.js export business website built for a 
+brass handicraft manufacturer based in Moradabad, India.
 
-First, run the development server:
+**Live site:** https://themaker.in  
+**Built by:** Arham  
+**Portfolio:** https://your-portfolio.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- **Frontend:** Next.js 14 (App Router), Tailwind CSS, Framer Motion
+- **3D:** React Three Fiber, Three.js
+- **Backend:** Supabase (PostgreSQL, Storage, Auth, Edge Functions)
+- **Email:** Resend
+- **Deployment:** Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- Full-screen real photo hero with gradient overlay
+- Interactive 3D brass bell with scroll animation
+- Dynamic product catalogue with category filtering and full-text search
+- Admin dashboard — product management, image upload, inquiry tracking
+- Contact form with email notifications via Supabase Edge Functions
+- Newsletter subscription system
+- Google Maps embed
+- WhatsApp integration
+- Fully responsive — mobile and desktop
+- SEO optimised with dynamic metadata per product page
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Pages
+- `/` — Homepage with hero, products, trust section, story teaser, CTA
+- `/products` — Full catalogue with filters, search, load more
+- `/products/[slug]` — Product detail with image gallery, specs, share
+- `/about` — Brand story, craft process, photo strip, mission
+- `/contact` — Enquiry form with info panel and WhatsApp
+- `/dashboard` — Protected admin panel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Developed
+April 2026

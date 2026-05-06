@@ -11,16 +11,58 @@ const playfairDisplay = Playfair_Display({
 })
 
 export const metadata = {
-  title: 'The Maker — Premium Brass Handicrafts',
+  metadataBase: new URL('https://themaker.in'),
+  title: {
+    default: 'The Maker — Premium Brass Handicrafts from Moradabad',
+    template: '%s — The Maker',
+  },
   description:
-    'Exporting handcrafted brass bells, key rings, and handicraft items worldwide. Quality craftsmanship, global reach.',
-  keywords:
-    'brass handicrafts, brass bells, key rings, handmade exports, Indian handicrafts, Moradabad brass',
+    'Export-quality handcrafted brass bells, key rings, and decorative items from Moradabad, India. Trusted by wholesale buyers in 30+ countries.',
+  keywords: [
+    'brass handicrafts export',
+    'brass bells manufacturer India',
+    'Moradabad brass export',
+    'wholesale brass items',
+    'handcrafted brass key rings',
+    'Indian handicrafts export',
+    'brass decorative items wholesale',
+    'Moradabad handicraft manufacturer',
+  ],
+  authors: [{ name: 'Arham', url: 'https://arham-portfolio.vercel.app/' }],
+  creator: 'Arham',
   openGraph: {
-    title: 'The Maker — Premium Brass Handicrafts',
-    description:
-      'Exporting handcrafted brass bells, key rings, and handicraft items worldwide.',
     type: 'website',
+    locale: 'en_IN',
+    url: 'https://themaker.in',
+    siteName: 'The Maker',
+    title: 'The Maker — Premium Brass Handicrafts from Moradabad',
+    description:
+      'Export-quality handcrafted brass bells, key rings, and decorative items from Moradabad, India.',
+    images: [
+      {
+        url: '/NewHomeBell.webp',
+        width: 1200,
+        height: 630,
+        alt: 'The Maker — Premium Brass Handicrafts',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Maker — Premium Brass Handicrafts from Moradabad',
+    description:
+      'Export-quality handcrafted brass from Moradabad, India.',
+    images: ['/NewHomeBell.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 

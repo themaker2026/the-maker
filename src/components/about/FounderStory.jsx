@@ -39,7 +39,7 @@ export default function FounderStory() {
           <div className={s.photo_placeholder} style={{ overflow: 'hidden' }}>
             <Image
               src="/AboutWorkShop1.webp"
-              alt="Workshop photo"
+              alt="The Maker brass handicraft manufacturer Moradabad"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}

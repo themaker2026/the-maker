@@ -285,6 +285,25 @@ a.contact_text:hover {
     color: #999999;
 }
 
+.credit {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 300;
+    color: #444;
+}
+
+.credit_link {
+    color: var(--color-teal);
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.15s ease;
+}
+
+.credit_link:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
     .footer {

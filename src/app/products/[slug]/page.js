@@ -60,11 +60,44 @@ export default async function ProductPage({ params }) {
     ...p,
     category_name: p.categories?.name || '',
   }))
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description || `${product.name} — handcrafted brass product from Moradabad, India.`,
+    image: product.images || [],
+    brand: {
+      '@type': 'Brand',
+      name: 'The Maker',
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'The Maker',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Moradabad',
+        addressRegion: 'Uttar Pradesh',
+        addressCountry: 'IN',
+      },
+    },
+    material: product.material || 'Brass',
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@type': 'Organization',
+        name: 'The Maker',
+      },
+    },
+  }
 
   return (
-    <ProductDetail
-      product={product}
-      related={relatedMapped}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <ProductDetail product={product} related={relatedMapped} />
+    </>
   )
 }
