@@ -68,7 +68,7 @@ export default function ForgotPasswordPage() {
                 <input
                   type="email"
                   className={s.field_input}
-                  placeholder="admin@themaker.in"
+                  placeholder="info@themaker-tm.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

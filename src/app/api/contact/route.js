@@ -48,8 +48,8 @@ export async function POST(req) {
     const resend = new (require('resend').Resend)(process.env.RESEND_API_KEY)
     
     const { error: emailError } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'arham2004i@gmail.com',
+      from: 'info@themaker-tm.com',
+      to: 'info@themaker-tm.com',
       subject: `New Inquiry from ${name.trim()}`,
       html: `
         <h2>New Contact Inquiry</h2>

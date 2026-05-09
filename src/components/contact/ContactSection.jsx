@@ -15,8 +15,8 @@ const STEPS = [
 const CONTACT_ITEMS = [
   {
     label: 'Email',
-    value: 'hello@themaker.in',
-    href: 'mailto:hello@themaker.in',
+    value: 'info@themaker-tm.com',
+    href: 'mailto:info@themaker-tm.com',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
         <path

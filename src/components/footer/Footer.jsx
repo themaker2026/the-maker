@@ -220,10 +220,10 @@ export default function Footer() {
                 </svg>
               </span>
               <a
-                href="mailto:hello@themaker.in"
+                href="mailto:info@themaker-tm.com"
                 className={s.contact_text}
               >
-                hello@themaker.in
+                info@themaker-tm.com
               </a>
             </div>
 
