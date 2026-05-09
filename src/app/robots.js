@@ -5,6 +5,6 @@ export default function robots() {
         allow: '/',
         disallow: ['/dashboard/', '/api/'],
       },
-      sitemap: 'https://themaker.in/sitemap.xml',
+      sitemap: 'https://themaker-tm.com/sitemap.xml',
     }
   }

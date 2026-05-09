@@ -11,7 +11,7 @@ const playfairDisplay = Playfair_Display({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://themaker.in'),
+  metadataBase: new URL('https://themaker-tm.com'),
   title: {
     default: 'The Maker — Premium Brass Handicrafts from Moradabad',
     template: '%s — The Maker',
@@ -28,12 +28,12 @@ export const metadata = {
     'brass decorative items wholesale',
     'Moradabad handicraft manufacturer',
   ],
-  authors: [{ name: 'Arham', url: 'https://arham-portfolio.vercel.app/' }],
+  authors: [{ name: 'Arham', url: 'https://github.com/Arham2004m' }],
   creator: 'Arham',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://themaker.in',
+    url: 'https://themaker-tm.com',
     siteName: 'The Maker',
     title: 'The Maker — Premium Brass Handicrafts from Moradabad',
     description:

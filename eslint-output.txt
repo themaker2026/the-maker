@@ -1,0 +1,160 @@
+
+> the-maker@0.1.0 lint
+> eslint
+
+
+D:\TheMaker\the-maker\src\app\dashboard\categories\page.js
+  29:6  warning  React Hook useEffect has a missing dependency: 'supabase'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TheMaker\the-maker\src\app\dashboard\forgot-password\page.js
+  61:38  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\app\dashboard\inquiries\page.js
+  34:21  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  32 |   }
+  33 |
+> 34 |   useEffect(() => { fetchInquiries() }, [filter])
+     |                     ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  35 |
+  36 |   const handleStatusChange = async (id, status) => {
+  37 |     const { error } = await supabase  react-hooks/set-state-in-effect
+  34:41  warning  React Hook useEffect has a missing dependency: 'fetchInquiries'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+
+D:\TheMaker\the-maker\src\app\dashboard\page.js
+   72:70  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  145:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+D:\TheMaker\the-maker\src\app\dashboard\products\page.js
+  30:21  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  28 |   }
+  29 |
+> 30 |   useEffect(() => { fetchProducts() }, [])
+     |                     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  31 |
+  32 |   const handleDelete = async (id, name) => {
+  33 |     const { error } = await supabase  react-hooks/set-state-in-effect
+  30:40  warning  React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+  98:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @next/next/no-img-element
+
+D:\TheMaker\the-maker\src\components\about\FounderStory.jsx
+  13:19  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  18:37  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  19:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  25:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\components\about\MissionStatement.jsx
+  10:11  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  11:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\components\contact\ContactHero.jsx
+  13:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  17:34  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  18:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  18:60  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\components\contact\ContactSection.jsx
+   90:7   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  88 |     const productName = searchParams.get('name')
+  89 |     if (productName) {
+> 90 |       setForm((prev) => ({
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  91 |         ...prev,
+  92 |         product_interest: decodeURIComponent(productName),
+  93 |       }))  react-hooks/set-state-in-effect
+  217:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\components\cta\CTABanner.jsx
+  43:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  49:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  50:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\components\dashboard\ProductForm.jsx
+  53:6  warning  React Hook useEffect has missing dependencies: 'product.images', 'setExistingImages', and 'supabase'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TheMaker\the-maker\src\components\dashboard\Sidebar.jsx
+  60:19  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  58 |   const [open, setOpen] = useState(false)
+  59 |
+> 60 |   useEffect(() => setOpen(false), [pathname])
+     |                   ^^^^^^^ Avoid calling setState() directly within an effect
+  61 |
+  62 |   const handleSignOut = async () => {
+  63 |     await supabase.auth.signOut()  react-hooks/set-state-in-effect
+
+D:\TheMaker\the-maker\src\components\navbar\Navbar.jsx
+  52:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  50 |   // Close mobile menu on route change
+  51 |   useEffect(() => {
+> 52 |     setMobileOpen(false)
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  53 |     setMobileCatOpen(false)
+  54 |   }, [pathname])
+  55 |  react-hooks/set-state-in-effect
+
+D:\TheMaker\the-maker\src\components\product\ProductDetail.jsx
+  31:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  29 |
+  30 |   useEffect(() => {
+> 31 |     setCurrentUrl(window.location.href)
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  32 |   }, [])
+  33 |
+  34 |   const images = product.images?.length > 0 ? product.images : []  react-hooks/set-state-in-effect
+
+D:\TheMaker\the-maker\src\components\products\ProductsCatalogue.jsx
+  129:6  warning  React Hook useEffect has missing dependencies: 'urlCategory' and 'urlQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TheMaker\the-maker\src\components\products\ProductsSection.jsx
+  120:6  warning  React Hook useEffect has a missing dependency: 'supabase'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TheMaker\the-maker\src\components\story\StoryTeaser.jsx
+  70:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  72:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\TheMaker\the-maker\src\hooks\useCategories.js
+  32:6  warning  React Hook useEffect has a missing dependency: 'supabase'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 33 problems (24 errors, 9 warnings)
+

@@ -302,7 +302,7 @@ export default function Footer() {
   </p>
   <p className={s.credit}>
     Designed &amp; developed by{' '}
-    <a href="https://arham-portfolio.vercel.app/"
+    <a href="https://github.com/Arham2004m"
       target="_blank"
       rel="noopener noreferrer"
       className={s.credit_link}

@@ -10,8 +10,8 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'The Maker',
-    url: 'https://themaker.in',
-    logo: 'https://themaker.in/homepageBell.webp',
+    url: 'https://themaker-tm.com',
+    logo: 'https://themaker-tm.com/homepageBell.webp',
     description:
       'Premium brass handicraft manufacturer and exporter based in Moradabad, India.',
     address: {

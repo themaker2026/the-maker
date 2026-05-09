@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 
 export default async function sitemap() {
-  const baseUrl = 'https://themaker.in'
+  const baseUrl = 'https://themaker-tm.com'
   const supabase = await createClient()
 
   const { data: products } = await supabase
