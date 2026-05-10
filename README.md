@@ -3,9 +3,9 @@
 A full-stack Next.js export business website built for a 
 brass handicraft manufacturer based in Moradabad, India.
 
-**Live site:** https://themaker.in  
+**Live site:** https://themaker-tm.com  
 **Built by:** Arham  
-**Portfolio:** https://your-portfolio.com
+**Portfolio:** https://github.com/Arham2004m/
 
 ## Tech Stack
 - **Frontend:** Next.js 14 (App Router), Tailwind CSS, Framer Motion
