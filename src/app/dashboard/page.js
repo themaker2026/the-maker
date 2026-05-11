@@ -47,7 +47,7 @@ export default async function DashboardPage() {
         <div className={s.stat_card}>
           <p className={s.stat_label}>Live Site</p>
           <a
-            href="https://the-maker-arham2004ms-projects.vercel.app"
+            href="https://themaker-tm.com"
             target="_blank"
             rel="noopener noreferrer"
             className={s.btn_primary}
